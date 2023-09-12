@@ -21,7 +21,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save New Product</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Save New Product</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -70,7 +70,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning">Save Changes</button>
+                    <button type="submit" class="btn btn-warning"><i class="bi bi-check-circle"></i> Save Changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -100,7 +100,53 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <a href="delete/{{delete.product.id}}" class="btn btn-danger">Confirm Delete</a>
+                <a href="delete/{{delete.product.id}}" class="btn btn-danger"><i class="bi bi-check-circle"></i> Confirm Delete</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- Show Product -->
+{% for show in for_action %}
+<div class="modal fade" tabindex="-1" role="dialog" id="showModal-{{show.product.id}}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Product Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>           
+            <div class="modal-body">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>{{ show.product.name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Category</th>
+                            <td>{{ show.product.get_category_display }}</td> <!-- get_category_display() is a method made by django for choices fields -->
+                        </tr>
+                        <tr>
+                            <th scope="row">Price</th>
+                            <td>{{ show.product.price }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Quantity</th>
+                            <td>{{ show.product.quantity }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date Added</th>
+                            <td>{{ show.product.date_added }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
             </form>

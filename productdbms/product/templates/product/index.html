@@ -9,7 +9,7 @@
                 <span class="navbar-text">Database Management System</span>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                Add product
+                <i class="bi bi-bag-plus"></i> Add Product
             </button>
         </nav>
         <!-- Table for Inventory -->
@@ -29,15 +29,15 @@
                 {% for product in products %}
                 <tr>
                     <!--<td><input type="checkbox" value="{{ product.id }}" name="selected-{{ product.id }}"></td>-->
-                    <td>{{ product.name }}</td>
+                    <td><a href="" data-toggle="modal" data-target="#showModal-{{product.id}}">{{ product.name }}</a></td>
                     <td>{{ product.get_category_display }}</td> <!-- get_category_display() is a method made by django for choices fields -->
                     <td>{{ product.price }}</td>
                     <td>{{ product.quantity }}</td>
                     <td>{{ product.date_added }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Actions">
-                            <button class="btn btn-warning" data-toggle="modal" data-target="#updateModal-{{product.id}}">Update</button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{product.id}}">Delete</button>
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#updateModal-{{product.id}}"><i class="bi bi-pencil-square"></i> Update</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal-{{product.id}}"><i class="bi bi-trash"></i> Delete</button>
                         </div>
                     </td>
                 </tr>
