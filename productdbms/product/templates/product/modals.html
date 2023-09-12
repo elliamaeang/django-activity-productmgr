@@ -52,7 +52,7 @@
                                 {% if field.name == 'name' %}
                                     <input type="text" name="{{ field.name }}" value="{{ update.product.name }}">
                                 {% elif field.name == 'price' %}
-                                    <input type="number" name="{{ field.name }}" value="{{ update.product.price }}">
+                                    <input type="number" min="0.00" step="any" name="{{ field.name }}" value="{{ update.product.price }}">
                                 {% elif field.name == 'quantity' %}
                                     <input type="number" name="{{ field.name }}" value="{{ update.product.quantity }}">    
                                 {% elif field.name == 'category' %}

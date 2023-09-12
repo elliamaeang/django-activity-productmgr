@@ -14,7 +14,7 @@ class Product(models.Model):
     name = models.CharField(max_length=50)
     date_added = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=2, choices=CategoryChoices.choices)
-    price = models.DecimalField("Price (in PHP)", max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
+    price = models.DecimalField("Price (in PHP)", max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.00'))])
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
